@@ -6,24 +6,12 @@
 #include <functional>
 
 #include "linalg.hpp"
+#include "alias.hpp"
 
 namespace cie
 {
 namespace splinekernel
 {
-
-class CompressedSparseRowMatrix;
-
-using GlobalLinearSystem = std::pair<CompressedSparseRowMatrix, std::vector<double>>;
-using ElementLinearSystem = std::pair<linalg::Matrix, std::vector<double>>;
-
-using SpatialFunction = std::function<double( double, double )>;
-
-using IntegrationPoints = std::array<std::vector<double>, 2>;
-using IntegrationPointProvider = std::function<IntegrationPoints( size_t )>;
-
-using KnotVectors = std::array<std::vector<double>, 2>;
-using LocationMaps = std::vector<std::vector<size_t>>;
 
 /*! Helper class to construct the linear equation system for a finite element method    *
  *  on a B-Spline patch. In this case the mesh of (non-zero) knot spans represents the  *

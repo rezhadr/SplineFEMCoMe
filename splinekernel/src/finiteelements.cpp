@@ -1,5 +1,6 @@
 #include "finiteelements.hpp"
 #include "basisfunctions.hpp"
+#include "utilities.hpp"
 
 #include <cmath>
 #include <algorithm>
@@ -53,14 +54,6 @@ double evaluateBSplineDerivative( double t,
 
 namespace detail
 {
-
-void runtime_check(bool result, const char message[])
-{
-    if( !result )
-    {
-        throw std::runtime_error{ message };
-    }
-}
 
 std::array<double, 2> mapToGlobalCoordinates( std::array<double, 2> localCoordinates,
                                               std::array<size_t, 2> elementIndices,
